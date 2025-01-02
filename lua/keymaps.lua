@@ -38,8 +38,13 @@ vim.keymap.set('i', '<A-k>', '<Esc>:m-2<CR>', { noremap = true, silent = true })
 vim.keymap.set('i', '<A-j>', '<Esc>:m+<CR>', { noremap = true, silent = true })
 
 -- Easier command mode and exit from insert mode
-vim.keymap.set('n', ';', ':', { desc = 'CMD enter command mode' })
 vim.keymap.set('i', 'jk', '<ESC>')
+
+-- Quit
+-- Close the current window
+vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit current window' })
+-- Force quit all windows without saving
+vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { desc = 'Force quit all' })
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
