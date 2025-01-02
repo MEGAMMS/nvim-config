@@ -1,3 +1,4 @@
 return {
   'ThePrimeagen/vim-be-good',
+  require 'mega.plugins.cmake-tools',
 }
