@@ -32,10 +32,12 @@ vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower win
 vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- Move a line using Alt + Up and Alt + Down
-vim.keymap.set('n', '<A-k>', ':m-2<CR>', { noremap = true, silent = true })
-vim.keymap.set('n', '<A-j>', ':m+<CR>', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-k>', '<Esc>:m-2<CR>', { noremap = true, silent = true })
-vim.keymap.set('i', '<A-j>', '<Esc>:m+<CR>', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-j>', ':move .+1<CR>==', { noremap = true, silent = true })
+vim.keymap.set('n', '<A-k>', ':move .-2<CR>==', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-j>', '<Esc>:move .+1<CR>==', { noremap = true, silent = true })
+vim.keymap.set('i', '<A-k>', '<Esc>:move .-2<CR>==', { noremap = true, silent = true })
+vim.keymap.set('v', '<A-j>', ":move '>+1<CR>gv=gv", { noremap = true, silent = true })
+vim.keymap.set('v', '<A-k>', ":move '<-2<CR>gv=gv", { noremap = true, silent = true })
 
 -- Easier command mode and exit from insert mode
 vim.keymap.set('i', 'jk', '<ESC>')
@@ -45,6 +47,12 @@ vim.keymap.set('i', 'jk', '<ESC>')
 vim.keymap.set('n', '<leader>q', ':q<CR>', { desc = 'Quit current window' })
 -- Force quit all windows without saving
 vim.keymap.set('n', '<leader>Q', ':qa!<CR>', { desc = 'Force quit all' })
+
+-- Stuff to make the curser stay in the middel
+vim.keymap.set('n', '<C-d>', "<C-d>zz")
+vim.keymap.set('n', '<C-u>', "<C-u>zz")
+vim.keymap.set('n', 'n' ,'nzzzv')
+vim.keymap.set('n', 'N' ,'Nzzzv')
 
 -- [[ Basic Autocommands ]]
 --  See `:help lua-guide-autocommands`
