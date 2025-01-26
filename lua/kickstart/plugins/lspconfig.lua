@@ -177,7 +177,15 @@ return {
       --  - settings (table): Override the default settings passed when initializing the server.
       --        For example, to see the options for `lua_ls`, you could go to: https://luals.github.io/wiki/settings/
       local servers = {
-        clangd = {},
+        clangd = {
+          cmd = { 'clangd', '--enable-config' },
+          vim.keymap.set(
+            'n',
+            '<leader>ch',
+            '<cmd>ClangdSwitchSourceHeader<CR>',
+            { noremap = true, silent = true, desc = 'Switch between source and header file (Clangd)' }
+          ),
+        },
         cmake = {},
         intelephense = {
           filetypes = { 'php', 'blade', 'php_only' },
