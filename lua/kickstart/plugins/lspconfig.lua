@@ -199,6 +199,8 @@ return {
             },
           },
         },
+        jdtls = {},
+        xmlformatter = {},
         -- gopls = {},
         -- pyright = {},
         -- rust_analyzer = {},
